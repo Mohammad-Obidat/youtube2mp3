@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Youtube to MP3 Converter</title>
+  </head>
+  <body>
+    <div class="top-container">
+      <form action="/convert-mp3" method="POST" id="form">
+        <h1><i class="fa-brands fa-youtube"></i> Youtube to MP3 Converter</h1>
+        <h4>Enter the video URL</h4>
+        <div>
+          <input type="text" name="videoURL" placeholder="Video URL" />
+          <button id="convert-btn">Convert</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="bottom-container">
+      <% if (typeof success != 'undefined' && success) { %>
+      <div class="success">
+        <p><%= song_title %></p>
+        <a href="<%= song_link %>"
+          ><button id="download-btn">DOWNLOAD</button></a
+        >
+      </div>
+      <% } else if (typeof success != 'undefined' && !success) { %>
+
+      <div class="errors">
+        <p><%= message %></p>
+      </div>
+
+      <% } %>
+    </div>
+  </body>
+</html>
